@@ -6,9 +6,12 @@
 
 
 import Entities.Publicacion;
+import Entities.Revista;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import implementaciones.FachadaBO;
+import interfaces.IFachadaBO;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFrame;
@@ -20,12 +23,13 @@ import org.bson.Document;
  * @author marti
  */
 public class pAgregarPuRe extends javax.swing.JFrame {
-
+    private IFachadaBO fachadaBO;
     /**
      * Creates new form pAgregarPuRe
      */
     public pAgregarPuRe() {
         initComponents();
+        this.fachadaBO = new FachadaBO();
     }
 
     /**
@@ -244,13 +248,10 @@ public class pAgregarPuRe extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        MongoClient mongoClient = new MongoClient();
-        //ACCESO A LA BD ESPECIFICA
-        MongoDatabase database = mongoClient.getDatabase("proyectos");
-        //ACCESO A LA COLECCCIÓN
-        MongoCollection<Document> collection = database.getCollection("publicaciones");
+        Publicacion publicacion = new Publicacion();
+        Revista revista = new Revista();
 
-        String NumeroSecuencia = txtNumSec.getText();
+        int NumeroSecuencia = Integer.parseInt(txtNumSec.getText()); 
         String Titulo = txtTitulo.getText();
         String Profesores = txtProf.getText();
         String NomRev = txtNomRev.getText();
@@ -260,26 +261,20 @@ public class pAgregarPuRe extends javax.swing.JFrame {
         String Pais = txtPais.getText();
         String LugCel = txtLugCel.getText();
         String Editorial = txtEditorial.getText();
+        
+        publicacion.setNumSec(NumeroSecuencia);
+        publicacion.setTitulo(Titulo);
+        publicacion.setProf(Profesores);
+        revista.setNombre(NomRev);
+        revista.setTipo(Tipo);
+        revista.setFechaInicio(FechIn);
+        revista.setFechaFin(FechFin);
+        revista.setPais(Pais);
+        revista.setLugCel(LugCel);
+        revista.setEditorial(Editorial);
 
-        if (Titulo.isEmpty() || Profesores.isEmpty() || NomRev.isEmpty()
-                || Tipo.isEmpty() || FechIn.isEmpty() || FechFin.isEmpty()
-                || Pais.isEmpty() || LugCel.isEmpty() || Editorial.isEmpty()) {
-            JFrame jFrame = new JFrame();
-            JOptionPane.showMessageDialog(jFrame, "Se ha detectado un campo vacío, favor de llenarlo");
-        } else {
-            ArrayList<Document> lista = new ArrayList<>();
-            lista.add(new Document("Numero de secuencia:", NumeroSecuencia)
-                    .append("Titulo", Titulo)
-                    .append("Profesores", Profesores)
-                    .append("Revista", new Document().append("Nombre de la revista", NomRev)
-                            .append("Tipo", Tipo)
-                            .append("Fecha de inicio", FechIn)
-                            .append("Fecha de finalización", FechFin)
-                            .append("País", Pais)
-                            .append("Lugar de celebración", LugCel)
-                            .append("Editorial", Editorial)));
-            collection.insertMany(lista);
-        }
+        fachadaBO.agregarPublicaciones(publicacion);
+        fachadaBO.agregarRevistas(revista);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed

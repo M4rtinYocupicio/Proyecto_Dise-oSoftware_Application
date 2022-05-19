@@ -1,5 +1,7 @@
 
+import Entities.Congreso;
 import Entities.Proyecto;
+import Entities.Publicacion;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -240,9 +242,10 @@ public class pAgregarPuCo extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        Proyecto proyecto = new Proyecto();
+        Publicacion publicacion = new Publicacion();
+        Congreso congreso = new Congreso();
 
-        String NumeroSecuencia = txtNumSec.getText();
+        int NumeroSecuencia = Integer.parseInt(txtNumSec.getText());
         String Titulo = txtTitulo.getText();
         String Profesores = txtProf.getText();
         String NombreCong = frmNomCongr.getText();
@@ -251,8 +254,19 @@ public class pAgregarPuCo extends javax.swing.JFrame {
         String Pais = txtPais.getText();
         String LugCel = txtLugCel.getText();
         String Editorial = txtEditorial.getText();
+        
+        publicacion.setNumSec(NumeroSecuencia);
+        publicacion.setTitulo(Titulo);
+        publicacion.setProf(Profesores);
+        congreso.setNombre(NombreCong);
+        congreso.setFechaInicio(FechIn);
+        congreso.setFechaFin(FechFin);
+        congreso.setPais(Pais);
+        congreso.setLugCel(LugCel);
+        congreso.setEditorial(Editorial);
 
-        fachadaBO.agregarProyecto(proyecto);
+        fachadaBO.agregarPublicaciones(publicacion);
+        fachadaBO.agregarCongreso(congreso);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
