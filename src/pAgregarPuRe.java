@@ -70,6 +70,7 @@ public class pAgregarPuRe extends javax.swing.JFrame {
         txtProf = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Agregar una publicacion de revista");
 
         jPanel1.setBackground(new java.awt.Color(252, 240, 240));
 

@@ -34,6 +34,7 @@ public class SeleccionPublicacion extends javax.swing.JFrame {
         btnRegregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Selecciona el tipo de publicación");
 
         jPanel1.setBackground(new java.awt.Color(252, 240, 240));
 

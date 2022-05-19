@@ -58,6 +58,7 @@ public class pAgregarProfesor extends javax.swing.JFrame {
         txtGradEst = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Agregar un profesor");
 
         jPanel1.setBackground(new java.awt.Color(252, 240, 240));
 

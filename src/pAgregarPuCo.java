@@ -70,6 +70,7 @@ public class pAgregarPuCo extends javax.swing.JFrame {
         txtProf = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Agregar una publicación de congreso");
 
         jPanel1.setBackground(new java.awt.Color(252, 240, 240));
 
@@ -92,7 +93,7 @@ public class pAgregarPuCo extends javax.swing.JFrame {
 
         jLabel10.setText("Fecha de fin:");
 
-        jLabel11.setText("Lugar de celebracion:");
+        jLabel11.setText("Lugar de celebración:");
 
         jLabel12.setText("País:");
 

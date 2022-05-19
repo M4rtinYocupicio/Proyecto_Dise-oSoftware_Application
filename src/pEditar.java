@@ -49,6 +49,7 @@ public class pEditar extends javax.swing.JFrame {
         btnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Editar un proyecto");
 
         jPanel1.setBackground(new java.awt.Color(252, 240, 240));
 
@@ -56,7 +57,8 @@ public class pEditar extends javax.swing.JFrame {
 
         jLabel2.setText("Nombre del proyecto:");
 
-        jLabel3.setText("Acronimo:");
+        jLabel3.setText("Acrónimo:");
+        jLabel3.setToolTipText("");
 
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Fecha de inicio:");

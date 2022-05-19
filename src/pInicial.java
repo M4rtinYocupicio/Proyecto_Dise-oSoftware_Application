@@ -37,6 +37,7 @@ public class pInicial extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pantalla inicial");
 
         jPanel1.setBackground(new java.awt.Color(252, 240, 240));
 

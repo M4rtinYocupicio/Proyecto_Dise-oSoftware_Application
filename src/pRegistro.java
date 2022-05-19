@@ -68,6 +68,7 @@ public class pRegistro extends javax.swing.JFrame {
         txtIntegrantes = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Registrar un proyecto");
 
         jPanel1.setBackground(new java.awt.Color(252, 240, 240));
 
@@ -100,7 +101,7 @@ public class pRegistro extends javax.swing.JFrame {
 
         jLabel2.setText("Nombre del proyecto:");
 
-        jLabel3.setText("Acronimo:");
+        jLabel3.setText("Acrónimo:");
 
         jLabel4.setText("Fecha de inicio:");
 

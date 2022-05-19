@@ -51,6 +51,7 @@ public class pBuscar extends javax.swing.JFrame {
         frmContenido = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Buscar un proyecto");
 
         jPanel1.setBackground(new java.awt.Color(252, 240, 240));
 
