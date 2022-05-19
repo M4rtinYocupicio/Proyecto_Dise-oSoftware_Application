@@ -262,11 +262,37 @@ public class pAgregarPuRe extends javax.swing.JFrame {
         String Pais = txtPais.getText();
         String LugCel = txtLugCel.getText();
         String Editorial = txtEditorial.getText();
-        if(Titulo.isEmpty() || Profesores.isEmpty() || NomRev.isEmpty()
-                || Tipo.isEmpty() || FechIn.isEmpty() || FechFin.isEmpty()
-                || Pais.isEmpty() || LugCel.isEmpty() || Editorial.isEmpty())
+        if(txtNumSec.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Uno de los campos está vacio");
+            JOptionPane.showMessageDialog(null, "El campo de numero de secuencia está vacio");
+        }
+        else if(Titulo.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de titulo está vacio");
+        }
+        else if(Profesores.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de investigador principal está vacio");
+        }
+        else if(NomRev.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo del nombre de la revista está vacio");
+        }
+        else if(Tipo.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de tipo está vacio");
+        }
+        else if(Pais.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de país está vacio");
+        }
+        else if(LugCel.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de lugar de celebracion está vacio");
+        }
+        else if(Editorial.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de editorial está vacio");
         }
         else
         {
@@ -283,6 +309,17 @@ public class pAgregarPuRe extends javax.swing.JFrame {
 
             fachadaBO.agregarPublicaciones(publicacion);
             fachadaBO.agregarRevistas(revista);
+            JOptionPane.showMessageDialog(null, "Se ha agregado una nueva publicacion de revista exitosamente");
+            txtNumSec.setText("");
+            txtTitulo.setText("");
+            txtProf.setText("");
+            txtNomRev.setText("");
+            txtTipo.setText("");
+            dcFechIn.setText("");
+            dcFechFin.setText("");
+            txtPais.setText("");
+            txtLugCel.setText("");
+            txtEditorial.setText("");
         }
         
     }//GEN-LAST:event_btnGuardarActionPerformed

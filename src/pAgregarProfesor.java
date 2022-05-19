@@ -200,11 +200,29 @@ public class pAgregarProfesor extends javax.swing.JFrame {
         int Telefono = Integer.parseInt(txtTelefono.getText());
         int Participaciones = Integer.parseInt(txtParticipaciones.getText());
         String Estudios = txtGradEst.getText();
-        if(Nombre.isEmpty() || Apellido.isEmpty() || Despacho.isEmpty()
-                || txtTelefono.getText().isEmpty() || txtParticipaciones.getText().isEmpty()
-                || Estudios.isEmpty())
+        if(Nombre.isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Uno de los campos está vacio");
+            JOptionPane.showMessageDialog(null, "El campo de nombre está vacío");
+        }
+        else if(Apellido.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de apellido está vacío");
+        }
+        else if(Despacho.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de despacho está vacío");
+        }
+        else if(txtTelefono.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de telefono está vacío");
+        }
+        else if(txtParticipaciones.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de participaciones está vacío");
+        }
+        else if(Estudios.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de estudios está vacío");
         }
         else
         {
@@ -214,8 +232,15 @@ public class pAgregarProfesor extends javax.swing.JFrame {
             profesor.setTelefono(Telefono);
             profesor.setParticipaciones(Participaciones);
             profesor.setGradEstudios(Estudios);
-
+            
             fachadaBO.agregarProfesores(profesor);
+            
+            JOptionPane.showMessageDialog(null, "Se ha agregado un nuevo profesor exitosamente");
+            txtNomProf.setText("");
+            txtApProf.setText("");
+            txtDespacho.setText("");
+            txtTelefono.setText("");
+            txtParticipaciones.setText("");
         }
         
     }//GEN-LAST:event_btnGuardarActionPerformed

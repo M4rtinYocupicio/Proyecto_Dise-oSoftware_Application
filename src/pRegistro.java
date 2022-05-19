@@ -235,10 +235,25 @@ public class pRegistro extends javax.swing.JFrame {
         String Int = txtIntegrantes.getText();
         float Pres = Float.parseFloat(txtPresupuesto.getText());
         
-        if(LinInv.isEmpty() || Proy.isEmpty() || Acr.isEmpty() || FechIn.isEmpty()
-                || FechFin.isEmpty() || Int.isEmpty() || txtPresupuesto.getText().isEmpty())
+        if(LinInv.isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Uno de los campos está vacio");
+            JOptionPane.showMessageDialog(null, "El campo de linea de investigación está vacio");
+        }
+        else if(Proy.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de proyecto está vacio");
+        }
+        else if(Acr.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de acronimo está vacio");
+        }
+        else if(Int.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de investigador principal está vacio");
+        }
+        else if(txtPresupuesto.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de presupuesto está vacio");
         }
         else
         {
@@ -250,6 +265,14 @@ public class pRegistro extends javax.swing.JFrame {
             proyecto.setNombre(Int);
             proyecto.setPresupuesto(Pres);
             fachadaBO.agregarProyecto(proyecto);
+            JOptionPane.showMessageDialog(null, "Se ha agregado un nuevo proyecto exitosamente");
+            txtLinInv.setText("");
+            txtNomProy.setText("");
+            txtAcronimo.setText("");
+            dChFechIn.setText("");
+            dChFechFin.setText("");
+            txtIntegrantes.setText("");
+            txtPresupuesto.setText("");
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 

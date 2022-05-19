@@ -258,11 +258,33 @@ public class pAgregarPuCo extends javax.swing.JFrame {
         String Pais = txtPais.getText();
         String LugCel = txtLugCel.getText();
         String Editorial = txtEditorial.getText();
-        if(Titulo.isEmpty() || Profesores.isEmpty() || NombreCong.isEmpty()
-                || FechIn.isEmpty() || FechFin.isEmpty() || Pais.isEmpty() 
-                || LugCel.isEmpty() || Editorial.isEmpty())
+        if(txtNumSec.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Uno de los campos está vacio");
+            JOptionPane.showMessageDialog(null, "El campo de numero de secuencia está vacio");
+        }
+        else if(Titulo.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de titulo está vacio");
+        }
+        else if(Profesores.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de investigador principal está vacio");
+        }
+        else if(NombreCong.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo del nombre del congreso está vacio");
+        }
+        else if(Pais.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de país está vacio");
+        }
+        else if(LugCel.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de lugar de celebracion está vacio");
+        }
+        else if(Editorial.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo de editorial está vacio");
         }
         else
         {
@@ -278,6 +300,16 @@ public class pAgregarPuCo extends javax.swing.JFrame {
 
             fachadaBO.agregarPublicaciones(publicacion);
             fachadaBO.agregarCongreso(congreso);
+            JOptionPane.showMessageDialog(null, "Se ha agregado una nueva publicacion de congreso  exitosamente");
+            txtNumSec.setText("");
+            txtTitulo.setText("");
+            txtProf.setText("");
+            frmNomCongr.setText("");
+            dcFechIn.setText("");
+            dcFechFin.setText("");
+            txtLugCel.setText("");
+            txtPais.setText("");
+            txtEditorial.setText("");
         }
         
     }//GEN-LAST:event_btnGuardarActionPerformed
