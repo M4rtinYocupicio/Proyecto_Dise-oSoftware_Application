@@ -262,20 +262,29 @@ public class pAgregarPuRe extends javax.swing.JFrame {
         String Pais = txtPais.getText();
         String LugCel = txtLugCel.getText();
         String Editorial = txtEditorial.getText();
-        
-        publicacion.setNumSec(NumeroSecuencia);
-        publicacion.setTitulo(Titulo);
-        publicacion.setProf(Profesores);
-        revista.setNombre(NomRev);
-        revista.setTipo(Tipo);
-        revista.setFechaInicio(FechIn);
-        revista.setFechaFin(FechFin);
-        revista.setPais(Pais);
-        revista.setLugCel(LugCel);
-        revista.setEditorial(Editorial);
+        if(Titulo.isEmpty() || Profesores.isEmpty() || NomRev.isEmpty()
+                || Tipo.isEmpty() || FechIn.isEmpty() || FechFin.isEmpty()
+                || Pais.isEmpty() || LugCel.isEmpty() || Editorial.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Uno de los campos está vacio");
+        }
+        else
+        {
+            publicacion.setNumSec(NumeroSecuencia);
+            publicacion.setTitulo(Titulo);
+            publicacion.setProf(Profesores);
+            revista.setNombre(NomRev);
+            revista.setTipo(Tipo);
+            revista.setFechaInicio(FechIn);
+            revista.setFechaFin(FechFin);
+            revista.setPais(Pais);
+            revista.setLugCel(LugCel);
+            revista.setEditorial(Editorial);
 
-        fachadaBO.agregarPublicaciones(publicacion);
-        fachadaBO.agregarRevistas(revista);
+            fachadaBO.agregarPublicaciones(publicacion);
+            fachadaBO.agregarRevistas(revista);
+        }
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed

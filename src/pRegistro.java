@@ -235,15 +235,22 @@ public class pRegistro extends javax.swing.JFrame {
         String Int = txtIntegrantes.getText();
         float Pres = Float.parseFloat(txtPresupuesto.getText());
         
-        proyecto.setLinInv(LinInv);
-        proyecto.setNombre(Proy);
-        proyecto.setAcronimo(Acr);
-        proyecto.setFechIn(FechIn);
-        proyecto.setFechFin(FechFin);     
-        proyecto.setNombre(Int);
-        proyecto.setPresupuesto(Pres);
-        
-        fachadaBO.agregarProyecto(proyecto);
+        if(LinInv.isEmpty() || Proy.isEmpty() || Acr.isEmpty() || FechIn.isEmpty()
+                || FechFin.isEmpty() || Int.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Uno de los campos está vacio");
+        }
+        else
+        {
+            proyecto.setLinInv(LinInv);
+            proyecto.setNombre(Proy);
+            proyecto.setAcronimo(Acr);
+            proyecto.setFechIn(FechIn);
+            proyecto.setFechFin(FechFin);
+            proyecto.setNombre(Int);
+            proyecto.setPresupuesto(Pres);
+            fachadaBO.agregarProyecto(proyecto);
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
