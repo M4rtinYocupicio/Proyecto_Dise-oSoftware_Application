@@ -236,7 +236,7 @@ public class pRegistro extends javax.swing.JFrame {
         float Pres = Float.parseFloat(txtPresupuesto.getText());
         
         if(LinInv.isEmpty() || Proy.isEmpty() || Acr.isEmpty() || FechIn.isEmpty()
-                || FechFin.isEmpty() || Int.isEmpty())
+                || FechFin.isEmpty() || Int.isEmpty() || txtPresupuesto.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Uno de los campos está vacio");
         }
