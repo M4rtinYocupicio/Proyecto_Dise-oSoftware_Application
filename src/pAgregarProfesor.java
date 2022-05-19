@@ -200,15 +200,23 @@ public class pAgregarProfesor extends javax.swing.JFrame {
         int Telefono = Integer.parseInt(txtTelefono.getText());
         int Participaciones = Integer.parseInt(txtParticipaciones.getText());
         String Estudios = txtGradEst.getText();
+        if(Nombre.isEmpty() || Apellido.isEmpty() || Despacho.isEmpty()
+                || Estudios.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Uno de los campos está vacio");
+        }
+        else
+        {
+            profesor.setNombre(Nombre);
+            profesor.setApellido(Apellido);
+            profesor.setDespacho(Despacho);
+            profesor.setTelefono(Telefono);
+            profesor.setParticipaciones(Participaciones);
+            profesor.setGradEstudios(Estudios);
+
+            fachadaBO.agregarProfesores(profesor);
+        }
         
-        profesor.setNombre(Nombre);
-        profesor.setApellido(Apellido);
-        profesor.setDespacho(Despacho);
-        profesor.setTelefono(Telefono);
-        profesor.setParticipaciones(Participaciones);
-        profesor.setGradEstudios(Estudios);
-        
-        fachadaBO.agregarProfesores(profesor);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed

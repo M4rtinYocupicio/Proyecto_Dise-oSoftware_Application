@@ -255,19 +255,28 @@ public class pAgregarPuCo extends javax.swing.JFrame {
         String Pais = txtPais.getText();
         String LugCel = txtLugCel.getText();
         String Editorial = txtEditorial.getText();
-        
-        publicacion.setNumSec(NumeroSecuencia);
-        publicacion.setTitulo(Titulo);
-        publicacion.setProf(Profesores);
-        congreso.setNombre(NombreCong);
-        congreso.setFechaInicio(FechIn);
-        congreso.setFechaFin(FechFin);
-        congreso.setPais(Pais);
-        congreso.setLugCel(LugCel);
-        congreso.setEditorial(Editorial);
+        if(Titulo.isEmpty() || Profesores.isEmpty() || NombreCong.isEmpty()
+                || FechIn.isEmpty() || FechFin.isEmpty() || Pais.isEmpty() 
+                || LugCel.isEmpty() || Editorial.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Uno de los campos está vacio");
+        }
+        else
+        {
+            publicacion.setNumSec(NumeroSecuencia);
+            publicacion.setTitulo(Titulo);
+            publicacion.setProf(Profesores);
+            congreso.setNombre(NombreCong);
+            congreso.setFechaInicio(FechIn);
+            congreso.setFechaFin(FechFin);
+            congreso.setPais(Pais);
+            congreso.setLugCel(LugCel);
+            congreso.setEditorial(Editorial);
 
-        fachadaBO.agregarPublicaciones(publicacion);
-        fachadaBO.agregarCongreso(congreso);
+            fachadaBO.agregarPublicaciones(publicacion);
+            fachadaBO.agregarCongreso(congreso);
+        }
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
