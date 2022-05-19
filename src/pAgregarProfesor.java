@@ -197,8 +197,8 @@ public class pAgregarProfesor extends javax.swing.JFrame {
         String Nombre = txtNomProf.getText();
         String Apellido = txtApProf.getText();
         String Despacho = txtDespacho.getText();
-        int Telefono = Integer.parseInt(txtTelefono.getText());
-        int Participaciones = Integer.parseInt(txtParticipaciones.getText());
+        float Telefono = Float.parseFloat(txtTelefono.getText());
+        float Participaciones = Float.parseFloat(txtParticipaciones.getText());
         String Estudios = txtGradEst.getText();
         if(Nombre.isEmpty() || Apellido.isEmpty() || Despacho.isEmpty()
                 || Estudios.isEmpty())
