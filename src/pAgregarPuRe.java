@@ -268,6 +268,10 @@ public class pAgregarPuRe extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "El campo de editorial está vacio");
         }
+        else if(txtNumSec.getText().contains("-"))
+        {
+            JOptionPane.showMessageDialog(null, "Favor de ingresar un dato valido en el campo de Numero de secuencia");
+        }
         else
         {
             String NumeroSecuencia = txtNumSec.getText();

@@ -220,12 +220,20 @@ public class pAgregarProfesor extends javax.swing.JFrame {
         }
         else if(txtParticipaciones.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "El campo de participaciones está vacío");
+            JOptionPane.showMessageDialog(null, "El campo de participaciones está vacío");        
         }
         else if(this.txtGradEst.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de estudios está vacío");
         }
+        else if(txtTelefono.getText().contains("-")) 
+        {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un valor valido en Telefono");
+        } 
+        else if(txtParticipaciones.getText().contains("-")) 
+        {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un valor valido en Participaciones");
+        } 
         else
         {
             String Nombre = this.txtNomProf.getText();
@@ -243,6 +251,7 @@ public class pAgregarProfesor extends javax.swing.JFrame {
             txtDespacho.setText("");
             txtTelefono.setText("");
             txtParticipaciones.setText("");
+            txtGradEst.setText("");
         }
         
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -254,6 +263,7 @@ public class pAgregarProfesor extends javax.swing.JFrame {
         txtDespacho.setText("");
         txtTelefono.setText("");
         txtParticipaciones.setText("");
+        txtGradEst.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

@@ -246,6 +246,10 @@ public class pRegistro extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "El campo de presupuesto está vacio");
         }
+        else if(txtPresupuesto.getText().contains("-"))
+        {
+            JOptionPane.showMessageDialog(null, "Favor de poner un valor valido en el campo Presupuesto");
+        }
         else
         {
             String LinInv = txtLinInv.getText();
