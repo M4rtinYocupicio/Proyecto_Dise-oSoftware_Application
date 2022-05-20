@@ -225,29 +225,20 @@ public class pRegistro extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO code application logic here
         
-        Proyecto proyecto = new Proyecto();
         
-        String LinInv = txtLinInv.getText();
-        String Proy = txtNomProy.getText();
-        String Acr = txtAcronimo.getText();
-        String FechIn = dChFechIn.getText();
-        String FechFin = dChFechFin.getText();
-        String Int = txtIntegrantes.getText();
-        float Pres = Float.parseFloat(txtPresupuesto.getText());
-        
-        if(LinInv.isEmpty())
+        if(txtLinInv.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de linea de investigación está vacio");
         }
-        else if(Proy.isEmpty())
+        else if(txtNomProy.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de proyecto está vacio");
         }
-        else if(Acr.isEmpty())
+        else if(txtAcronimo.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de acronimo está vacio");
         }
-        else if(Int.isEmpty())
+        else if(txtIntegrantes.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de investigador principal está vacio");
         }
@@ -257,15 +248,25 @@ public class pRegistro extends javax.swing.JFrame {
         }
         else
         {
-            proyecto.setLinInv(LinInv);
-            proyecto.setNombre(Proy);
-            proyecto.setAcronimo(Acr);
-            proyecto.setFechIn(FechIn);
-            proyecto.setFechFin(FechFin);
-            proyecto.setNombre(Int);
-            proyecto.setPresupuesto(Pres);
+            String LinInv = txtLinInv.getText();
+            String Proy = txtNomProy.getText();
+            String Acr = txtAcronimo.getText();
+            String FechIn = dChFechIn.getText();
+            String FechFin = dChFechFin.getText();
+            String Int = txtIntegrantes.getText();
+            float Pres = Float.parseFloat(txtPresupuesto.getText());
+            Proyecto proyecto = new Proyecto(LinInv, Proy, Acr, FechIn, FechFin, Int, Pres);
+            boolean seAgregoProyecto=fachadaBO.agregarProyecto(proyecto);
+            
+            if(seAgregoProyecto)
+            {
+                JOptionPane.showMessageDialog(null, "Se ha agregado una nuevo proyecto exitosamente");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "No se pudo agregar una nueva publicación");
+            }
             fachadaBO.agregarProyecto(proyecto);
-            JOptionPane.showMessageDialog(null, "Se ha agregado un nuevo proyecto exitosamente");
             txtLinInv.setText("");
             txtNomProy.setText("");
             txtAcronimo.setText("");
