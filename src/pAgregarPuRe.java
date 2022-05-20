@@ -234,8 +234,7 @@ public class pAgregarPuRe extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        Publicacion publicacion = new Publicacion();
-        Revista revista = new Revista();
+        
 
         if(txtNumSec.getText().isEmpty())
         {
@@ -282,17 +281,10 @@ public class pAgregarPuRe extends javax.swing.JFrame {
             String LugCel = txtLugCel.getText();
             String Editorial = txtEditorial.getText();
             
-            publicacion.setNumSec(NumeroSecuencia);
-            publicacion.setTitulo(Titulo);
-            publicacion.setProf(Profesores);
-            revista.setNombre(NomRev);
-            revista.setTipo(Tipo);
-            revista.setFechaInicio(FechIn);
-            revista.setFechaFin(FechFin);
-            revista.setPais(Pais);
-            revista.setLugCel(LugCel);
-            revista.setEditorial(Editorial);
+            Revista revista = new Revista(NomRev, Tipo, FechFin, FechFin, Pais, LugCel, Editorial);
+            Publicacion publicacion= new Publicacion(NumeroSecuencia, Titulo, Profesores, revista);
             boolean seAgregoPublicacion=fachadaBO.agregarPublicaciones(publicacion);
+            
             if(seAgregoPublicacion)
             {
                 JOptionPane.showMessageDialog(null, "Se ha agregado una nueva publicación exitosamente");
@@ -303,7 +295,7 @@ public class pAgregarPuRe extends javax.swing.JFrame {
             }
             fachadaBO.agregarRevistas(revista);
             
-            JOptionPane.showMessageDialog(null, "Se ha agregado una nueva publicacion de revista exitosamente");
+            JOptionPane.showMessageDialog(null, "Se ha agregado una nueva publicación de revista exitosamente");
             txtNumSec.setText("");
             txtTitulo.setText("");
             txtProf.setText("");

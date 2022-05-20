@@ -230,8 +230,6 @@ public class pAgregarPuCo extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        Publicacion publicacion = new Publicacion();
-        Congreso congreso = new Congreso();
 
         if(txtNumSec.getText().isEmpty())
         {
@@ -273,15 +271,9 @@ public class pAgregarPuCo extends javax.swing.JFrame {
             String LugCel = txtLugCel.getText();
             String Editorial = txtEditorial.getText();
             
-            publicacion.setNumSec(NumeroSecuencia);
-            publicacion.setTitulo(Titulo);
-            publicacion.setProf(Profesores);
-            congreso.setNombre(NombreCong);
-            congreso.setFechaInicio(FechIn);
-            congreso.setFechaFin(FechFin);
-            congreso.setPais(Pais);
-            congreso.setLugCel(LugCel);
-            congreso.setEditorial(Editorial);
+            Congreso congreso = new Congreso(Profesores, NombreCong, FechFin, FechFin, Pais, LugCel, Editorial);
+            Publicacion publicacion= new Publicacion(NumeroSecuencia, Titulo, Profesores, congreso);
+            
             boolean seAgregoPublicacion=fachadaBO.agregarPublicaciones(publicacion);
             if(seAgregoPublicacion)
             {
