@@ -233,45 +233,46 @@ public class pAgregarPuCo extends javax.swing.JFrame {
         Publicacion publicacion = new Publicacion();
         Congreso congreso = new Congreso();
 
-        String NumeroSecuencia = txtNumSec.getText();
-        String Titulo = txtTitulo.getText();
-        String Profesores = txtProf.getText();
-        String NombreCong = frmNomCongr.getText();
-        String FechIn = dcFechIn.getText();
-        String FechFin = dcFechFin.getText();
-        String Pais = txtPais.getText();
-        String LugCel = txtLugCel.getText();
-        String Editorial = txtEditorial.getText();
         if(txtNumSec.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de numero de secuencia está vacio");
         }
-        else if(Titulo.isEmpty())
+        else if(txtTitulo.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de titulo está vacio");
         }
-        else if(Profesores.isEmpty())
+        else if(txtProf.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de investigador principal está vacio");
         }
-        else if(NombreCong.isEmpty())
+        else if(frmNomCongr.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo del nombre del congreso está vacio");
         }
-        else if(Pais.isEmpty())
+        else if(txtPais.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de país está vacio");
         }
-        else if(LugCel.isEmpty())
+        else if(txtLugCel.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de lugar de celebracion está vacio");
         }
-        else if(Editorial.isEmpty())
+        else if(txtEditorial.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de editorial está vacio");
         }
         else
         {
+            String NumeroSecuencia = txtNumSec.getText();
+            String Titulo = txtTitulo.getText();
+            String Profesores = txtProf.getText();
+            String NombreCong = frmNomCongr.getText();
+            String FechIn = dcFechIn.getText();
+            String FechFin = dcFechFin.getText();
+            String Pais = txtPais.getText();
+            String LugCel = txtLugCel.getText();
+            String Editorial = txtEditorial.getText();
+            
             publicacion.setNumSec(NumeroSecuencia);
             publicacion.setTitulo(Titulo);
             publicacion.setProf(Profesores);
@@ -281,10 +282,19 @@ public class pAgregarPuCo extends javax.swing.JFrame {
             congreso.setPais(Pais);
             congreso.setLugCel(LugCel);
             congreso.setEditorial(Editorial);
-
-            fachadaBO.agregarPublicaciones(publicacion);
+            boolean seAgregoPublicacion=fachadaBO.agregarPublicaciones(publicacion);
+            if(seAgregoPublicacion)
+            {
+                JOptionPane.showMessageDialog(null, "Se ha agregado una nueva publicación exitosamente");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "No se ha podido agregar una nueva publicación");
+            }
             fachadaBO.agregarCongreso(congreso);
-            JOptionPane.showMessageDialog(null, "Se ha agregado una nueva publicacion de congreso  exitosamente");
+            
+            JOptionPane.showMessageDialog(null, "Se ha agregado una nueva publicación de congreso exitosamente");
+            
             txtNumSec.setText("");
             txtTitulo.setText("");
             txtProf.setText("");

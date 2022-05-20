@@ -237,50 +237,51 @@ public class pAgregarPuRe extends javax.swing.JFrame {
         Publicacion publicacion = new Publicacion();
         Revista revista = new Revista();
 
-        String NumeroSecuencia = txtNumSec.getText(); 
-        String Titulo = txtTitulo.getText();
-        String Profesores = txtProf.getText();
-        String NomRev = txtNomRev.getText();
-        String Tipo = txtTipo.getText();
-        String FechIn = dcFechIn.getText();
-        String FechFin = dcFechFin.getText();
-        String Pais = txtPais.getText();
-        String LugCel = txtLugCel.getText();
-        String Editorial = txtEditorial.getText();
         if(txtNumSec.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de numero de secuencia está vacio");
         }
-        else if(Titulo.isEmpty())
+        else if(txtTitulo.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de titulo está vacio");
         }
-        else if(Profesores.isEmpty())
+        else if(txtProf.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de investigador principal está vacio");
         }
-        else if(NomRev.isEmpty())
+        else if(txtNomRev.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo del nombre de la revista está vacio");
         }
-        else if(Tipo.isEmpty())
+        else if(txtTipo.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de tipo está vacio");
         }
-        else if(Pais.isEmpty())
+        else if(txtPais.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de país está vacio");
         }
-        else if(LugCel.isEmpty())
+        else if(txtLugCel.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de lugar de celebracion está vacio");
         }
-        else if(Editorial.isEmpty())
+        else if(txtEditorial.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de editorial está vacio");
         }
         else
         {
+            String NumeroSecuencia = txtNumSec.getText();
+            String Titulo = txtTitulo.getText();
+            String Profesores = txtProf.getText();
+            String NomRev = txtNomRev.getText();
+            String Tipo = txtTipo.getText();
+            String FechIn = dcFechIn.getText();
+            String FechFin = dcFechFin.getText();
+            String Pais = txtPais.getText();
+            String LugCel = txtLugCel.getText();
+            String Editorial = txtEditorial.getText();
+            
             publicacion.setNumSec(NumeroSecuencia);
             publicacion.setTitulo(Titulo);
             publicacion.setProf(Profesores);
@@ -291,9 +292,17 @@ public class pAgregarPuRe extends javax.swing.JFrame {
             revista.setPais(Pais);
             revista.setLugCel(LugCel);
             revista.setEditorial(Editorial);
-
-            fachadaBO.agregarPublicaciones(publicacion);
+            boolean seAgregoPublicacion=fachadaBO.agregarPublicaciones(publicacion);
+            if(seAgregoPublicacion)
+            {
+                JOptionPane.showMessageDialog(null, "Se ha agregado una nueva publicación exitosamente");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "No se ha podido agregar una nueva publicación");
+            }
             fachadaBO.agregarRevistas(revista);
+            
             JOptionPane.showMessageDialog(null, "Se ha agregado una nueva publicacion de revista exitosamente");
             txtNumSec.setText("");
             txtTitulo.setText("");

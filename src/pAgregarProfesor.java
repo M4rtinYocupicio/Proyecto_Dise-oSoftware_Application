@@ -1,5 +1,7 @@
 
+import DAOs.ProfesoresDAO;
 import Entities.Profesor;
+import Interfaces.IProfesoresDAO;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -192,23 +194,23 @@ public class pAgregarProfesor extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        Profesor profesor = new Profesor();
         
-        String Nombre = txtNomProf.getText();
-        String Apellido = txtApProf.getText();
-        String Despacho = txtDespacho.getText();
-        float Telefono = Float.parseFloat(txtTelefono.getText());
-        float Participaciones = Float.parseFloat(txtParticipaciones.getText());
-        String Estudios = txtGradEst.getText();
-        if(Nombre.isEmpty())
+        
+//        profesor.setNombre(Nombre);
+//        profesor.setApellido(Apellido);
+//        profesor.setDespacho(Despacho);
+//        profesor.setTelefono(Telefono);
+//        profesor.setParticipaciones(Participaciones);
+//        profesor.setGradEstudios(Estudios);
+        if(this.txtNomProf.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de nombre está vacío");
         }
-        else if(Apellido.isEmpty())
+        else if(this.txtApProf.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de apellido está vacío");
         }
-        else if(Despacho.isEmpty())
+        else if(this.txtDespacho.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de despacho está vacío");
         }
@@ -220,19 +222,19 @@ public class pAgregarProfesor extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "El campo de participaciones está vacío");
         }
-        else if(Estudios.isEmpty())
+        else if(this.txtGradEst.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El campo de estudios está vacío");
         }
         else
         {
-            profesor.setNombre(Nombre);
-            profesor.setApellido(Apellido);
-            profesor.setDespacho(Despacho);
-            profesor.setTelefono(Telefono);
-            profesor.setParticipaciones(Participaciones);
-            profesor.setGradEstudios(Estudios);
-            
+            String Nombre = this.txtNomProf.getText();
+            String Apellido = this.txtApProf.getText();
+            String Despacho = this.txtDespacho.getText();
+            float Telefono = Float.parseFloat(this.txtTelefono.getText());
+            float Participaciones = Float.parseFloat(this.txtParticipaciones.getText());
+            String Estudios = this.txtGradEst.getText();
+            Profesor profesor= new Profesor(Nombre, Apellido, Despacho, Telefono, Participaciones, Estudios);
             fachadaBO.agregarProfesores(profesor);
             
             JOptionPane.showMessageDialog(null, "Se ha agregado un nuevo profesor exitosamente");
