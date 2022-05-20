@@ -271,8 +271,11 @@ public class pAgregarPuCo extends javax.swing.JFrame {
             String LugCel = txtLugCel.getText();
             String Editorial = txtEditorial.getText();
             
-            Congreso congreso = new Congreso(Profesores, NombreCong, FechFin, FechFin, Pais, LugCel, Editorial);
-            Publicacion publicacion= new Publicacion(NumeroSecuencia, Titulo, Profesores, congreso);
+            Publicacion pub = new Publicacion();
+            
+            Congreso congreso = new Congreso(NombreCong, NombreCong, FechIn, FechFin, Pais, LugCel, Editorial);
+            pub.setCongreso(congreso);
+            Publicacion publicacion= new Publicacion(NumeroSecuencia, Profesores, Titulo, pub.getCongreso());
             
             boolean seAgregoPublicacion=fachadaBO.agregarPublicaciones(publicacion);
             if(seAgregoPublicacion)
@@ -283,7 +286,6 @@ public class pAgregarPuCo extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null, "No se ha podido agregar una nueva publicación");
             }
-            fachadaBO.agregarCongreso(congreso);
             
             JOptionPane.showMessageDialog(null, "Se ha agregado una nueva publicación de congreso exitosamente");
             

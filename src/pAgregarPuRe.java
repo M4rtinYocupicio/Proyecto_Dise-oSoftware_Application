@@ -281,8 +281,11 @@ public class pAgregarPuRe extends javax.swing.JFrame {
             String LugCel = txtLugCel.getText();
             String Editorial = txtEditorial.getText();
             
-            Revista revista = new Revista(NomRev, Tipo, FechFin, FechFin, Pais, LugCel, Editorial);
-            Publicacion publicacion= new Publicacion(NumeroSecuencia, Titulo, Profesores, revista);
+            Publicacion pub = new Publicacion();
+            
+            Revista revista = new Revista(NomRev, Tipo, FechIn, FechFin, Pais, LugCel, Editorial);
+            pub.setRevista(revista);
+            Publicacion publicacion= new Publicacion(NumeroSecuencia, Titulo, Profesores, pub.getRevista());
             boolean seAgregoPublicacion=fachadaBO.agregarPublicaciones(publicacion);
             
             if(seAgregoPublicacion)
@@ -293,7 +296,6 @@ public class pAgregarPuRe extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null, "No se ha podido agregar una nueva publicación");
             }
-            fachadaBO.agregarRevistas(revista);
             
             JOptionPane.showMessageDialog(null, "Se ha agregado una nueva publicación de revista exitosamente");
             txtNumSec.setText("");
