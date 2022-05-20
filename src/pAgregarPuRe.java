@@ -237,7 +237,7 @@ public class pAgregarPuRe extends javax.swing.JFrame {
         Publicacion publicacion = new Publicacion();
         Revista revista = new Revista();
 
-        int NumeroSecuencia = Integer.parseInt(txtNumSec.getText()); 
+        String NumeroSecuencia = txtNumSec.getText(); 
         String Titulo = txtTitulo.getText();
         String Profesores = txtProf.getText();
         String NomRev = txtNomRev.getText();

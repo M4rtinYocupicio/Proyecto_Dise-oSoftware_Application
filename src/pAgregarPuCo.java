@@ -233,7 +233,7 @@ public class pAgregarPuCo extends javax.swing.JFrame {
         Publicacion publicacion = new Publicacion();
         Congreso congreso = new Congreso();
 
-        int NumeroSecuencia = Integer.parseInt(txtNumSec.getText());
+        String NumeroSecuencia = txtNumSec.getText();
         String Titulo = txtTitulo.getText();
         String Profesores = txtProf.getText();
         String NombreCong = frmNomCongr.getText();
